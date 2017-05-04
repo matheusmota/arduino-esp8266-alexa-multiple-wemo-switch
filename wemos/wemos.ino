@@ -2,7 +2,7 @@
 #include <ESP8266WebServer.h>
 #include <WiFiUdp.h>
 #include <functional>
-#include "switch.h"
+#include "Switch.h"
 #include "UpnpBroadcastResponder.h"
 #include "CallbackFunction.h"
 
@@ -16,15 +16,15 @@ void kitchenLightsOn();
 void kitchenLightsOff();
 
 // Change this before you flash
-const char* ssid = "Aruna";
-const char* password = "*****";
+const char* ssid = "ilheus";
+const char* password = "7332318430";
 
 boolean wifiConnected = false;
 
 UpnpBroadcastResponder upnpBroadcastResponder;
 
-Switch *office = NULL;
-Switch *kitchen = NULL;
+Switch *switch1 = NULL;
+Switch *switch2 = NULL;
 
 void setup()
 {
@@ -38,38 +38,38 @@ void setup()
     
     // Define your switches here. Max 14
     // Format: Alexa invocation name, local port no, on callback, off callback
-    office = new Switch("office lights", 80, officeLightsOn, officeLightsOff);
-    kitchen = new Switch("kitchen lights", 81, kitchenLightsOn, kitchenLightsOff);
+    switch1 = new Switch("light", 80, switch1_on, switch1_off);
+    switch2 = new Switch("fan", 81, switch2_on, switch2_off);
 
     Serial.println("Adding switches upnp broadcast responder");
-    upnpBroadcastResponder.addDevice(*office);
-    upnpBroadcastResponder.addDevice(*kitchen);
+    upnpBroadcastResponder.addDevice(*switch1);
+    upnpBroadcastResponder.addDevice(*switch2);
   }
 }
  
 void loop()
 {
-	 if(wifiConnected){
+   if(wifiConnected){
       upnpBroadcastResponder.serverLoop();
       
-      kitchen->serverLoop();
-      office->serverLoop();
-	 }
+      switch1->serverLoop();
+      switch2->serverLoop();
+   }
 }
 
-void officeLightsOn() {
+void switch1_on() {
     Serial.print("Switch 1 turn on ...");
 }
 
-void officeLightsOff() {
+void switch1_off() {
     Serial.print("Switch 1 turn off ...");
 }
 
-void kitchenLightsOn() {
+void switch2_on() {
     Serial.print("Switch 2 turn on ...");
 }
 
-void kitchenLightsOff() {
+void switch2_off() {
   Serial.print("Switch 2 turn off ...");
 }
 
