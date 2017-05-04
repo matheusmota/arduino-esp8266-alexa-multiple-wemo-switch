@@ -6,29 +6,42 @@
 #include "UpnpBroadcastResponder.h"
 #include "CallbackFunction.h"
 
-// prototypes
-boolean connectWifi();
-
-//on/off callbacks 
-void officeLightsOn();
-void officeLightsOff();
-void kitchenLightsOn();
-void kitchenLightsOff();
 
 // Change this before you flash
 const char* ssid = "ilheus";
 const char* password = "7332318430";
 
+/***********
+ Prototypes
+*************/
+
+//general
+boolean connectWifi();
+
+
+//on/off callbacks 
+void switch1_on();
+void switch1_off();
+void switch2_on();
+void switch2_off();
+
+
 boolean wifiConnected = false;
 
 UpnpBroadcastResponder upnpBroadcastResponder;
 
-Switch *switch1 = NULL;
+Switch *switch1    = NULL;
+int     switch1Pin = D2;  // Pin to toggle
 Switch *switch2 = NULL;
+int     switch2Pin = D3;  // Pin to toggle
+
+//Switch *switch3 = NULL;
+//Switch *switch4 = NULL;
 
 void setup()
 {
-  Serial.begin(9600);
+  // Begin Serial:
+  Serial.begin(115200);
    
   // Initialise wifi connection
   wifiConnected = connectWifi();
@@ -39,7 +52,12 @@ void setup()
     // Define your switches here. Max 14
     // Format: Alexa invocation name, local port no, on callback, off callback
     switch1 = new Switch("light", 80, switch1_on, switch1_off);
+    pinMode(switch1Pin, OUTPUT);
+    digitalWrite(switch1Pin, HIGH);  // Start with switch on -- change to LOW for off
+        
     switch2 = new Switch("fan", 81, switch2_on, switch2_off);
+    pinMode(switch2Pin, OUTPUT);
+    digitalWrite(switch2Pin, HIGH);  // Start with switch on -- change to LOW for off
 
     Serial.println("Adding switches upnp broadcast responder");
     upnpBroadcastResponder.addDevice(*switch1);
@@ -59,18 +77,25 @@ void loop()
 
 void switch1_on() {
     Serial.print("Switch 1 turn on ...");
+    digitalWrite(switch1Pin, LOW); // turn on relay with voltage LOW (depends on your setup)
+
 }
 
 void switch1_off() {
     Serial.print("Switch 1 turn off ...");
+    digitalWrite(switch1Pin, HIGH); // turn on relay with voltage HIGH (depends on your setup)
+
 }
 
 void switch2_on() {
     Serial.print("Switch 2 turn on ...");
+    digitalWrite(switch2Pin, LOW); // turn on relay with voltage LOW (depends on your setup)
 }
 
 void switch2_off() {
   Serial.print("Switch 2 turn off ...");
+  digitalWrite(switch2Pin, HIGH); // turn off relay with voltage HIGH (depends on your setup)
+
 }
 
 // connect to wifi – returns true if successful or false if not
