@@ -1,7 +1,8 @@
 # Esp8266 Multiple Belkin Wemo Switch Emulator
 
 This project aims at emulating up to 14 Belkin Wemo Switches on a single ESP8266 chip. 
-The software creates multiple servers on different ports and mimics a Wemo Switch on each. Later, smart devices like Amazon's Alexa/Echo/Dot are able to broadcast/find such "devices"(emulated) and control them.
+The software creates multiple servers on different ports and mimics a Wemo Switch protocol on each. 
+Later, smart devices like Amazon's Alexa/Echo/Dot are able to broadcast/find such "devices"(emulated) and control them.
 
 ## How to use:
 1. Download/clone the code;
