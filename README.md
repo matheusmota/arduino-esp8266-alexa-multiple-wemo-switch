@@ -14,13 +14,13 @@ Later, smart devices like Amazon's Alexa/Echo/Dot are able to broadcast/find suc
 
 
 
+### Articles about the Wemos switch
 
-## Articles about the Wemos switch
 * [monkeytypewritr](https://medium.com/@monkeytypewritr/amazon-echo-esp8266-iot-a42076daafa5#.oc4od1xa0)
 
 
 ### Credits
 
 - [makermusings](https://github.com/makermusings/fauxmo)
-- [Aruna Tennakoon](https://github.com/kakopappa)
-- Forked from repo [arduino-esp8266-alexa-multiple-wemo-switch](https://github.com/kakopappa/arduino-esp8266-alexa-multiple-wemo-switch)
+- [Aruna Tennakoon](https://github.com/kakopappa) and others
+- [arduino-esp8266-alexa-multiple-wemo-switch](https://github.com/kakopappa/arduino-esp8266-alexa-multiple-wemo-switch)
