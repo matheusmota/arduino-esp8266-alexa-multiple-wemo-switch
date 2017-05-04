@@ -8,8 +8,8 @@
 
 
 // Change this before you flash
-const char* ssid = "ilheus";
-const char* password = "7332318430";
+const char* ssid = "ssid";
+const char* password = "password";
 
 /***********
  Prototypes
