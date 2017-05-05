@@ -2,11 +2,14 @@
 
 This project aims at emulating up to 14 Belkin Wemo Switches on a single ESP8266 chip. 
 The software creates multiple servers on different ports and mimics a Wemo Switch protocol on each. 
-Later, smart devices like Amazon's Alexa/Echo/Dot are able to broadcast/find such "devices"(emulated) and control them.
+
+Smart devices like Amazon's Alexa/Echo/Dot are able to broadcast/find the "devices" emulated and control[on/off] them according to your needs -- you can assing different tasks by implementing the callbacks.
+
+We are assuming here that you already [flashed](https://nodemcu.readthedocs.io/en/master/en/flash/) your esp8266 device with [NodeMCU](http://nodemcu.com/index_en.html) firmware and [prepared the Arduino IDE to support esp8266 devices](http://www.instructables.com/id/Quick-Start-to-Nodemcu-ESP8266-on-Arduino-IDE/#intro)
 
 ## How to use:
 1. Download/clone the code;
-2. Open the file wemos.ino in the Arduino editor;
+2. Open the file wemos.ino in the Arduino IDE;
 2. Change the WI-FI settings;
 3. Define switches, corresponding pins, and callbacks;
 3. Flash;
