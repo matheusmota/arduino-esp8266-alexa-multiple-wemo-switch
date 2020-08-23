@@ -8,7 +8,7 @@ Smart devices like Amazon's Alexa/Echo/Dot are able to broadcast/find the "devic
 We are assuming here that you already [flashed](https://nodemcu.readthedocs.io/en/master/en/flash/) your esp8266 device with [NodeMCU](http://nodemcu.com/index_en.html) firmware and [prepared the Arduino IDE to support esp8266 devices](http://www.instructables.com/id/Quick-Start-to-Nodemcu-ESP8266-on-Arduino-IDE/#intro)
 
 ## Preparing the environment
-1. Download the Arduino IDE ( https://www.arduino.cc/en/Main/Software )
+1. Download the Arduino IDE ( https://www.arduino.cc/en/Main/Software ) and add your user to the dialout group by running `sudo usermod -a -G dialout $USER` (linux)
 2. In the Arduino IDE, open File > Preferences and add `http://arduino.esp8266.com/stable/package_esp8266com_index.json` to the `Additional Board Managers URLs`
 3. Open Tools > Board > Board Manager
 4. Find and install the `esp8266` item
